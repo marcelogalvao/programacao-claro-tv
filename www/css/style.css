@@ -1,0 +1,35 @@
+/* Empty. Add your own CSS if you like */
+
+img.logo-canal{
+	height: 24px !important;
+	margin-top: 14px !important;
+	width: auto !important;
+}
+
+.lista-todos li .col1{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.lista-todos li > .icon{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.sinza{ color: #ccc;}
+
+.bt-favoritar{ padding: 0 15px;}
+
+p{ padding: 10px 20px;}
+
+.lista-home li:first-child{ border-top: none;}
+.bt-limpar{ font-size: 2em !important;}
+
+.bt-expandir{ font-size: 1.7em !important; }
+.lista-favoritos > .list > div:first-child > .item:first-child{ border-top: none;}
+.lista-favoritos .azul .item-content{background: #eee}
+
+.barra-busca .button-icon{ color: #787878; }
+.barra-busca .button-icon.positive{ color: #387ef5; }

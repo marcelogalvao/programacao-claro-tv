@@ -1,0 +1,35 @@
+<ion-view view-title="Canais" ng-controller="TodosCtrl">
+
+  <ion-header-bar class="bar-subheader item-input-inset barra-busca">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Pesquisar" ng-model="search" ng-change="scrollTop()" autocomplete="off">
+    </label>
+    <button class="button button-clear ion-ios-close-empty bt-limpar" ng-click="search = ''" ng-show="search">    
+    </button>
+  </ion-header-bar>
+
+
+  <ion-content>
+
+
+    
+    <ul class="list lista-home">
+      <li class="item item-icon-left item-icon-right" ng-repeat="item in itens | filter: search" ng-click="getCanal(item.IdCanal, $index)">
+        <!-- <span class="icon ion-person-stalker" ng-click="alert('')"></span> -->
+        <img ng-src="http://marcelogallvao.com/app/programacaotv/externos/{{item.IdLogoCanal}}.jpeg" class="icon logo-canal">
+        <span>{{item.NomeCanal}}</span> <span class="sinza">{{item.NumeroCanal}}</span>
+        <span class="icon ion-ios-star-outline bt-favoritar" ng-click="setFavorito(item.IdCanal, $index); $event.stopPropagation();" ng-class="{positive: item.favorito}"></span>
+      </li>
+    </ul>
+
+    <!-- <ion-list>
+      <ion-item ng-repeat="item in itens">
+        <!-- <img src="externos/311.jpeg" alt="">
+        <i class="icon ion-person-stalker"></i>
+        <span ng-click="javascript:alert('')">{{item.IdCanal}}</span>
+        <i class="icon ion-android-star-outline" ng-click="javascript:alert('')"></i>
+      </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

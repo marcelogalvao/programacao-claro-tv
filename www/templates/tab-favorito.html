@@ -1,0 +1,36 @@
+<ion-view view-title="{{item.NomeCanal}}" ng-controller="CanalCtrl">
+  <ion-content>
+    
+{{date}}
+    <ion-list>
+      <ion-item ng-repeat="(id, programa) in item.Programas | filter: filtraHora('HoraInicio')">
+      {{programa.HoraInicio}} - {{programa.HoraFim}} | {{programa.Titulo}}
+      </ion-item>
+    </ion-list>
+
+    <!-- <ul class="list">
+      <li class="item" ng-repeat="item.Programas in programa">
+      {{programa}}        
+      </li>
+    </ul> -->
+
+    <!-- <ion-list>
+      <ion-item ng-repeat="item in itens">
+        <!-- <img src="externos/311.jpeg" alt="">
+        <i class="icon ion-person-stalker"></i>
+        <span ng-click="javascript:alert('')">{{item.IdCanal}}</span>
+        <i class="icon ion-android-star-outline" ng-click="javascript:alert('')"></i>
+      </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>
+
+
+<!--
+  if ($v->HoraInicio < $hora) continue;
+                
+                echo '<li class="list-group-item">';
+                echo preg_replace($pattern, $replacement, $v->HoraInicio) . ' - ' . preg_replace($pattern, $replacement, $v->HoraFim);
+                echo ' | <b>' . $v->Titulo . '</b> <br>';
+                echo '</li>';
+                -->

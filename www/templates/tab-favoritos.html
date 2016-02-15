@@ -1,0 +1,41 @@
+<ion-view view-title="Favoritos" ng-controller="FavoritosCtrl">
+
+  <ion-header-bar class="bar-subheader item-input-inset barra-busca">
+  	<div class="buttons">
+  		<button class="button button-icon icon ion-minus-circled" ng-click="shouldShowDelete = !shouldShowDelete" ng-class="{'positive': shouldShowDelete}" style="padding-left: 3px;">
+  	</div>
+  	<h1 class="title"></h1>
+  	<div class="buttons">
+	    <button class="button button-icon icon bt-expandir ion-grid" ng-click="expandir = !expandir" ng-class="{'positive' : expandir}">
+	    </button>
+    </div>
+    </h1>
+  </ion-header-bar>
+
+  <ion-content>	
+
+	<ion-list can-swipe="true" class="lista-favoritos" show-delete="shouldShowDelete">
+		<div ng-repeat="item in itens | filter: {favorito: true}">
+		
+		<ion-item class="item item-icon-left item-icon-right" ng-click="getCanal(item.IdCanal, $index)" ng-class="{positive: expandir}">
+			<img ng-src="http://marcelogallvao.com/app/programacaotv/externos/{{item.IdLogoCanal}}.jpeg" class="icon logo-canal">
+	        <span>{{item.NomeCanal}}</span>
+
+		    <ion-delete-button class="ion-minus-circled" ng-click="remover($index, item.IdCanal)">
+		    </ion-delete-button>
+		</ion-item>
+
+		<ion-item ng-hide="!expandir">			
+		    {{date}}
+		    <ion-list>
+		      <ion-item ng-repeat="(id, programa) in item.Programas | filter: filtraHoraLimit('HoraInicio', 'HoraFim')">
+		      {{programa.HoraInicioBr}} - {{programa.HoraFimBr}} | {{programa.Titulo}}
+		      </ion-item>
+		    </ion-list>
+		</ion-item>
+
+		</div>
+	</ion-list>
+
+  </ion-content>
+</ion-view>
